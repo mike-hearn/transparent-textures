@@ -1,0 +1,7 @@
+.DS_Store
+output/
+.sass-cache/
+Transparent Textures (Pelican).sublime-workspace
+*.pyc
+node_modules/
+bower_components/

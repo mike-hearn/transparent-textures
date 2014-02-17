@@ -1,0 +1,22 @@
+{
+  "name": "transparent-textures",
+  "version": "0.0.0",
+  "dependencies": {
+    "bootstrap-sass-official" : "*",
+    "jquery-minicolors" : "*"
+  },
+  "authors": [
+    "Mike Hearn <git@mikehearn.net>"
+  ],
+  "description": "Archive of semi-transparent textures and patterns that can be colored using a solid background below them.",
+  "license": "MIT",
+  "homepage": "http://www.transparenttextures.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

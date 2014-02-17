@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/Mike/Dropbox/Code/Projects/transparent-textures-pelican",
+			"folder_exclude_patterns" : [
+				"output",
+				"node_modules",
+				"bower_components",
+				".sass-cache"
+			]
+		}
+	]
+}

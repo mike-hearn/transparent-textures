@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="content">
+{% block content_title %}
+{% endblock %}
+
+<ol id="post-list">
+{% for article in articles_page.object_list | sort(attribute="title") %}
+    <div class="pattern-container col-sm-6">
+        <div class="pattern clickable" style="background-image: url('{{ article.imgur }}');">
+            <h5 class="pattern-title" style="padding: 10px;">{{ article.title }}</h5>
+        </div>
+    </div>
+{% endfor %}
+</ol><!-- /#posts-list -->
+{% include 'pagination.html' %}
+</section><!-- /#content -->
+{% endblock content %}
+{% block scripts %}
+    var patterns = [{% for article in articles_page.object_list | sort(attribute="title") %} "{{article.imgur}}",{% endfor %}];
+{% endblock scripts %}

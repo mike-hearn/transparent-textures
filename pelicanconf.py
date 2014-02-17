@@ -21,6 +21,7 @@ DEFAULT_PAGINATION = False
 #RELATIVE_URLS = True
 
 THEME = 'theme'
+READERS = {'html': None}
 
 PAGE_EXCLUDES = (('node_modules','bower_components'))
 ARTICLE_EXCLUDES = (('pages','node_modules','bower_components'))

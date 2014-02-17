@@ -4,6 +4,14 @@ var sass = require('gulp-ruby-sass');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 
+var sass_paths = ['./theme/static/css/styles.scss',
+                   './theme/static/css/_variables.scss',
+                   './theme/static/css/_bootstrap.scss',
+                 ];
+var css_paths = ['./bower_components/jquery-minicolors/jquery.minicolors.css',
+                   './theme/static/css/styles.css'
+                 ];
+
 gulp.task('js', function () {
     gulp.src(['./theme/static/js/plugins.js',
               './theme/static/js/main.js'])
@@ -18,22 +26,9 @@ gulp.task('plugins', function () {
         .pipe(concat("plugins.js"))
         .pipe(uglify())
         .pipe(gulp.dest('./theme/static/js'));
-
-});
-
-gulp.task('plugin-images', function () {
     gulp.src(["bower_components/jquery-minicolors/jquery.minicolors.png"])
         .pipe(gulp.dest('./theme/static/css'));
-
 });
-
-var sass_paths = ['./theme/static/css/styles.scss',
-                   './theme/static/css/_variables.scss',
-                   './theme/static/css/_bootstrap.scss',
-                 ];
-var css_paths = ['./bower_components/jquery-minicolors/jquery.minicolors.css',
-                   './theme/static/css/styles.css'
-                 ];
 
 gulp.task('sass', function () {
     //Move all bootstrap files into css /bootstrap dir
@@ -58,7 +53,6 @@ gulp.task('watch', function() {
 
 gulp.task('default', [
     'plugins',
-    'plugin-images',
     'sass',
     'css'
 ]);

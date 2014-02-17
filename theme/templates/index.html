@@ -1,21 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 <section id="content">
+{% block title %}
+{% endblock %}
 {% block content_title %}
 {% endblock %}
 
 <ol id="post-list">
 {% for article in articles_page.object_list | sort(attribute="title") %}
-    <div class="pattern-container col-sm-6">
-        <div class="pattern clickable" style="background-image: url('{{ article.imgur }}');">
-            <h5 class="pattern-title" style="padding: 10px;">{{ article.title }}</h5>
+    <li><div class="pattern-container col-sm-6">
+        {% if article.imgur %}<div class="pattern clickable" style="background-image: url('{{ article.imgur }}');">{% else %}<div class="pattern clickable" style="background-image: url('/theme/images/patterns/{{ article.slug }}.png');">{% endif %}
+            <div class="pattern-info">
+            	<h4 class="pattern-title">{{ article.title }}</h4>
+	            <p>Made by {% if article.authorsite %}<a href="{{ article.authorsite }}" target="_blank">{% endif %}{{ article.author }}{%if article.authorsite %}</a>{% endif %}</p>
+	        </div>
         </div>
-    </div>
+    </div></li>
 {% endfor %}
 </ol><!-- /#posts-list -->
 {% include 'pagination.html' %}
 </section><!-- /#content -->
 {% endblock content %}
 {% block scripts %}
-    var patterns = [{% for article in articles_page.object_list | sort(attribute="title") %} "{{article.imgur}}",{% endfor %}];
+    var patterns = [{% for article in articles_page.object_list | sort(attribute="title") %} ["{{ article.title }}", "{{article.imgur}}"],{% endfor %}];
 {% endblock scripts %}

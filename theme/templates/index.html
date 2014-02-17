@@ -13,6 +13,7 @@
             <div class="pattern-info">
             	<h4 class="pattern-title">{{ article.title }}</h4>
 	            <p>Made by {% if article.authorsite %}<a href="{{ article.authorsite }}" target="_blank">{% endif %}{{ article.author }}{%if article.authorsite %}</a>{% endif %}</p>
+	            <p style="display:none;">{% for tag in article.tags %}{{tag}} {% endfor %}</p>
 	        </div>
         </div>
     </div></li>

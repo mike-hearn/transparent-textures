@@ -23,12 +23,15 @@ gulp.task('js', ['plugins'], function () {
 
 gulp.task('plugins', function () {
     gulp.src(["bower_components/jquery-minicolors/jquery.minicolors.js",
-              "bower_components/jquery.lazyload/jquery.lazyload.js"])
+              "bower_components/jquery.lazyload/jquery.lazyload.js",
+              "bower_components/zeroclipboard/ZeroClipboard.js"])
         .pipe(concat("plugins.js"))
         .pipe(uglify())
         .pipe(gulp.dest('./theme/static/js'));
     gulp.src(["bower_components/jquery-minicolors/jquery.minicolors.png"])
         .pipe(gulp.dest('./theme/static/css'));
+    gulp.src(["bower_components/zeroclipboard/ZeroClipboard.swf"])
+        .pipe(gulp.dest('./theme/static/swf'));
 });
 
 gulp.task('sass', function () {

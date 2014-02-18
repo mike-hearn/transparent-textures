@@ -1,7 +1,8 @@
 // Function to change CSS field text
 var changeCSSText = function(hex, url) {
     var css = "background-color: " + hex + ";\n" +
-              "background-image: " + url + ";";
+              "background-image: " + url + ";\n" +
+              "/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */";
     return css;
 };
 
@@ -98,3 +99,25 @@ $("#cssfield").hover(
         window.getSelection().removeAllRanges();
     }
 );
+
+// Copy to clipboard code; copied almost straight from ZeroClipboard's example
+ZeroClipboard.config( { moviePath: '/theme/swf/ZeroClipboard.swf' } );
+var client = new ZeroClipboard($('#copy-button'));
+
+client.on( "load", function(client) {
+} );
+
+client.on( "complete", function(client, args) {
+    $('.copy-success').text('Copied!');
+    $('.copy-success').show();
+    $('.copy-success').fadeOut(2000);
+} );
+
+client.on( "noflash", function (client) {
+    $('#copy-button').hide();
+} );
+
+client.on( "wrongFlash", function (client,args) {
+    $('#copy-button').hide();
+} );
+

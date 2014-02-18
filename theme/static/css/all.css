@@ -5344,6 +5344,10 @@ ol {
     #cssfield {
       height: 67px; } }
 
+.copy-success {
+  color: #fafafa;
+  margin-left: 10px; }
+
 .pattern-info {
   padding: 10px 0 0 10px; }
   .pattern-info h4 {

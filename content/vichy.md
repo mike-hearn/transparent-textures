@@ -5,3 +5,4 @@ slug: vichy
 author: Olivier Pineda
 authorsite: http://www.olivierpineda.com
 original: http://subtlepatterns.com/vichy/
+tags: criss, cross, 

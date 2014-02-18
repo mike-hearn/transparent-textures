@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import os
 import requests
 import re
 import argparse
@@ -18,15 +19,23 @@ title = re.findall('<h2>(.*)</h2>', content)[0].title()
 date = datetime.now().strftime("%Y-%m-%d %H:%I:%S")
 imgur = ""
 slug = title.lower().replace(' ','-')
-authorsite, author = re.findall('Made by.+?<a href="(.+?)".*>(.*)</a>',content)[0]
+try:
+	authorsite, author = re.findall('Made by.+?<a href="(.+?)".*>(.*)</a>',content)[0]
+except IndexError:
+	author = re.findall('Made by (.+?)\.',content)[0]
+	authorsite = ''
 
 print title
 print slug
 print author
 print authorsite
-print original
+print original+"\n"
 
-writefile = open('./content/' + slug + '.md','w')
+filename = './content/' + slug + '.md'
+if os.path.isfile(filename):
+	print "Error: file exists."
+	exit()
+writefile = open(filename,'w')
 
 writefile.write("title: %s\n" % title)
 writefile.write("date: %s\n" % date)

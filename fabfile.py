@@ -48,6 +48,10 @@ def reserve():
     build()
     serve()
 
+def deploy():
+    rebuild()
+    local('cd {deploy_path} && s3cmd sync --acl-public --delete-removed ./* s3://www.transparenttextures.com'.format(**env))
+
 def preview():
     local('pelican -s publishconf.py')
 

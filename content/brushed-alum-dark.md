@@ -5,3 +5,4 @@ slug: brushed-alum-dark
 author: Tim Ward
 authorsite: http://www.MentalWardDesign.com
 original: http://subtlepatterns.com/brushed-alum-dark/
+tags: diagonal, metal

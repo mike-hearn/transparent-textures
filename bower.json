@@ -4,6 +4,7 @@
   "dependencies": {
     "bootstrap-sass-official" : "*",
     "jquery-minicolors" : "*"
+    "jquery.lazyload" : "*"
   },
   "authors": [
     "Mike Hearn <git@mikehearn.net>"

@@ -4,7 +4,8 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Mike Hearn'
 SITENAME = u'Transparent Textures'
-SITEURL = 'http://localhost:8000'
+SITEURL = 'http://www.transparenttextures.com'
+SITEDOMAIN = 'transparenttextures.com'
 
 TIMEZONE = 'America/New_York'
 
@@ -17,11 +18,14 @@ TRANSLATION_FEED_ATOM = None
 
 DEFAULT_PAGINATION = False
 
-# Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
-
 THEME = 'theme'
 READERS = {'html': None}
 
 PAGE_EXCLUDES = (('node_modules','bower_components'))
 ARTICLE_EXCLUDES = (('pages','node_modules','bower_components'))
+
+EXTRA_PATH_METADATA = {
+	'extra/favicon.png': {'path': 'favicon.png'},
+}
+
+GOOGLE_ANALYTICS = 'UA-48127789-1'

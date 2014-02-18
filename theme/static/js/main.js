@@ -7,9 +7,14 @@ Todo:
 */
 
 
+// Function to change CSS field text
+var changeCSSText = function(hex, url) {
+    var css = "background-color: " + hex + ";\n" +
+              "background-image: " + url + ";";
+    return css;
+};
 
 // Start off with a random background color
-
 var colors = ["#851400", "#cc8800", "#878c00", "#338c00", "#008c41", "#008c8c",
               "#004f8c", "#00238c", "#25008a", "#5c008a", "#8a008a", "#8a005e",
               "#8a0027"];
@@ -19,71 +24,68 @@ var default_pattern_array = patterns[Math.floor(Math.random() * patterns.length)
 var default_pattern = default_pattern_array[1];
 var default_pattern_title = default_pattern_array[0];
 
+// Load color & image from randomly chosen values
+$('body').css({
+    'background-image' : 'url("'+default_pattern+'")',
+    'background-color' : default_background
+});
 
-//Instantiate the colorpicker, cache of jQuery selectors & set backgrounds
-
-var colorpicker = $('.colorpicker');
-var inputbox = $('.colorpicker-inputbox');
-var clickable = $('.clickable');
-var body = $('body');
-var cssfield = $('#cssfield');
-
-colorpicker.minicolors(
+// Instantiate the colorpicker, cache of jQuery selectors & set backgrounds
+$('.colorpicker').minicolors(
     {
         inline: true,
         control: 'saturation',
-        defaultValue: default_background
+        defaultValue: default_background,
+        // Contains all actions that are triggered
+        // by changing the colorpicker:
+        change: function(hex, opacity) {
+            $('body,.clickable').css('background-color', hex);
+            $('.hexbox').val(hex);
+            $("#cssfield").val(changeCSSText(hex, $('body').css('background-image')));
+        },
+        changeDelay: 10
     });
 
-inputbox.val(default_background);
+$('.hexbox').val(default_background);
 
-body
-    .css('background-image','url("'+default_pattern+'")')
-    .css('background-color', default_background);
+// Intantiate: lazy loading
+$("div.lazy").lazyload({threshold : 1000, effect: "fadeIn"});
 
+// Set the clickable items to be the same background color as the body
+$('.clickable').css('background-color', default_background);
 
-//Set the clickable items to be the same background color as the body
-clickable.css('background-color', default_background);
+// Initial CSS box text
+var hex = $('.hexbox').val();
+var url = $('body').css('background-image');
+$("#cssfield").val(changeCSSText(hex, url));
 
-//Initial CSS Box
-cssfield.text(
-    "body {\n  background: url(" + default_pattern + ") " + default_background + ";\n}");
-
-//Initial 'Current pattern is...' text
+// Initial 'Current pattern is...' text
 $(".current-pattern").text(default_pattern_title);
 
-//When a user changes the colorpicker color, set the body & pattern background
-//colors to match.
-colorpicker.change(function() {
-    var background_color = colorpicker.val();
-    $('body,.clickable').css('background-color', background_color);
-    inputbox.val(background_color);
-    cssfield.text(
-        "body {\n  background: " + body.css('background-image') + " " + colorpicker.val() + ";\n}");
+// On user input to color input box, change the colorpicker as well
+$('.hexbox').change(function() {
+    var value = $(this).val();
+    $('.colorpicker').minicolors('value', value);
 });
 
-//On user input to color input box, change the colorpicker as well
-inputbox.change(function() {
-    var value = inputbox.val();
-    colorpicker.minicolors('value', value);
-});
-
-//All actions after a pattern is clicked on
-clickable.click( function() {
+// All actions after a pattern is clicked on
+$('.clickable').click( function() {
 
     background = $(this).css('background-image');
 
-    //Set the body background equal to the pattern clicked on
-    body.css('background-image', background);
+    // Set the body background equal to the pattern clicked on
+    $('body').css('background-image', background);
     //Set the 'current pattern' text
     $('.current-pattern').text($(this).find('.pattern-title').text());
     //Update the css text box
-    cssfield.text(
-        "body {\n  background: " + body.css('background-image') + " " + colorpicker.val() + ";\n}");
+    var hex = $('.hexbox').val();
+    var url = $('body').css('background-image');
+    $("#cssfield").val(changeCSSText(hex, url));
 });
 
 //Filter patterns via search box
 function filter(element) {
+    $('body,html').scroll();
     var value = $(element).val().toLowerCase();
 
     $("#post-list > li").each(function() {
@@ -96,15 +98,8 @@ function filter(element) {
     });
 }
 
-/*****************
-
-Utility functions
-
-******************/
-
-// Highlight all code #cssfield focus
-
-cssfield.hover(
+// Highlight all code in #cssfield on hover
+$("#cssfield").hover(
     function () {
        $(this).select();
     },

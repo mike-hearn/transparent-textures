@@ -12,7 +12,7 @@ var css_paths = ['./bower_components/jquery-minicolors/jquery.minicolors.css',
                    './theme/static/css/styles.css'
                  ];
 
-gulp.task('js', function () {
+gulp.task('js', ['plugins'], function () {
     gulp.src(['./theme/static/js/plugins.js',
               './theme/static/js/main.js'])
         .pipe(concat('all.min.js'))
@@ -22,7 +22,8 @@ gulp.task('js', function () {
 });
 
 gulp.task('plugins', function () {
-    gulp.src(["bower_components/jquery-minicolors/jquery.minicolors.js"])
+    gulp.src(["bower_components/jquery-minicolors/jquery.minicolors.js",
+              "bower_components/jquery.lazyload/jquery.lazyload.js"])
         .pipe(concat("plugins.js"))
         .pipe(uglify())
         .pipe(gulp.dest('./theme/static/js'));
@@ -52,7 +53,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', [
-    'plugins',
+    'js',
     'sass',
     'css'
 ]);

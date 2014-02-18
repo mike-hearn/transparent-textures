@@ -4,14 +4,15 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Transparent Textures</title>
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="favicon.png">
-
   <script type="text/javascript" src="//use.typekit.net/wpz6ttu.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <link rel="stylesheet" href="theme/css/all.css" />
   <style>
-    body {background-color: #888;}
+    body {
+      background-color: black;
+    }
   </style>
 </head>
 <body>
@@ -40,7 +41,7 @@
         <div class="row">
           <div class="col-sm-12">
             <h4>1. Choose a Color</h4>
-            <input class="colorpicker-inputbox"/ placeholder="Click to choose a color.">
+            <input class="hexbox"/ placeholder="Click to choose a color.">
             <input class="colorpicker"/ placeholder="Click to choose a color.">
           </div>
           <div class="col-sm-12">
@@ -63,5 +64,6 @@
   <script src="theme/js/plugins.js"></script>
   <script>{% block scripts %}{% endblock scripts %}</script>
   <script src="theme/js/main.js"></script>
+  {% include 'analytics.html' %}
 </body>
 </html>

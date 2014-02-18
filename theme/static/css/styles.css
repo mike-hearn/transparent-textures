@@ -4995,7 +4995,7 @@ h1, h2, h3, h4, h5, h6, p {
   top: 0;
   width: 100%;
   z-index: 1; }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     .header h1 {
       text-align: center; } }
 
@@ -5013,7 +5013,7 @@ h1 {
   margin-top: 8px;
   margin-bottom: 8px;
   margin-right: 30px; }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     #search {
       width: 100%;
       margin: 0 0 10px 0; } }
@@ -5024,7 +5024,7 @@ h1 {
   right: 51px;
   top: 13px;
   opacity: 0.4; }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     .searchicon {
       right: 22px;
       top: 5px; } }
@@ -5039,7 +5039,7 @@ h1 {
 
 .main-container {
   margin-top: 40px; }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     .main-container {
       margin-top: 70px; } }
 
@@ -5047,7 +5047,7 @@ h1 {
   height: 27px;
   width: 190px; }
 
-.colorpicker-inputbox {
+.hexbox {
   width: 175px;
   display: block; }
 
@@ -5064,7 +5064,7 @@ a {
 
 ol {
   list-style-type: none; }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     ol {
       padding-left: 0; } }
 
@@ -5095,7 +5095,7 @@ ol {
 
 #cssfield {
   font-size: .9em; }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     #cssfield {
       height: 67px; } }
 

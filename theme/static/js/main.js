@@ -1,12 +1,3 @@
-/*
-
-Todo:
-
--Set the csstext template into a separate function
-
-*/
-
-
 // Function to change CSS field text
 var changeCSSText = function(hex, url) {
     var css = "background-color: " + hex + ";\n" +

@@ -1,0 +1,17 @@
+{
+    "name": "transparent-textures",
+    "version": "0.1.0",
+    "devDependencies": {
+        "gulp" : "*",
+        "gulp-concat" : "*",
+        "gulp-ruby-sass" : "*",
+        "gulp-uglify" : "*",
+        "gulp-util" : "*"
+        },
+        "repository" : {
+            "type" : "git",
+            "url" : "http://github.com/mike-hearn/transparent-textures"
+        },
+        "private" : true
+    }
+}

@@ -1,5 +1,6 @@
 # Transparent Textures
 
+![Transparent Textures Screenshot](http://i.imgur.com/ZfeN076.png)
 
 This is the repository for [transparenttextures.com][1]. The mission of Transparent Textures is to extend the utility of [Subtle Patterns][1] by adding transparency to all of the patterns, allowing them to be used with any CSS background-color.
 

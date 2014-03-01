@@ -5,3 +5,4 @@ slug: strange-bullseyes
 author: Christopher Buecheler
 authorsite: http://cwbuecheler.com
 original: http://subtlepatterns.com/strange-bullseyes/
+tags: circles,

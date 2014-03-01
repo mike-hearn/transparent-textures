@@ -1,4 +1,4 @@
-title: Rice Paper 2
+title: Rice Paper #2
 date: 2014-02-28 21:09:56
 imgur: 
 slug: rice-paper-2

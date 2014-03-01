@@ -33,6 +33,14 @@ def start():
     local('screen -d -m -S pelicanregenerate fab regenerate')
     local('screen -d -m -S gulpwatch gulp watch')
 
+def gulpgen():
+    local('screen -d -m -S pelicanregenerate fab regenerate')
+    local('screen -d -m -S gulpwatch gulp watch')
+
+def gulpstop():
+    local('screen -X -S gulpwatch quit')
+    local('screen -X -S pelicanregenerate quit')
+
 def stop():
     local('screen -X -S gulpwatch quit')
     local('screen -X -S pelicanregenerate quit')

@@ -5,3 +5,4 @@ slug: skeletal-weave
 author: Angelica
 authorsite: http://fleeting_days.livejournal.com
 original: http://subtlepatterns.com/skeletal-weave/
+tags: bricks,

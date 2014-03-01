@@ -8,7 +8,7 @@
 
 <ol id="post-list">
 
-{% for article in articles_page.object_list | sort(attribute="title") %}
+{% for article in articles_page.object_list | sort(attribute="date", reverse=True) %}
 <li>
     <div class="pattern-container col-sm-6">
         {% if article.imgur %}

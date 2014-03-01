@@ -21,9 +21,20 @@ DEFAULT_PAGINATION = False
 THEME = 'theme'
 READERS = {'html': None}
 
-PAGE_EXCLUDES = (('node_modules','bower_components'))
-ARTICLE_EXCLUDES = (('pages','node_modules','bower_components'))
+PAGE_EXCLUDES = ((
+	'node_modules',
+	'bower_components',
+	))
+ARTICLE_EXCLUDES = ((
+	'pages',
+	'node_modules',
+	'bower_components',
+	))
+IGNORE_FILES = (['README.md'])
 
+STATIC_PATHS = [
+    'extra/favicon.png',
+    ]
 EXTRA_PATH_METADATA = {
 	'extra/favicon.png': {'path': 'favicon.png'},
 }

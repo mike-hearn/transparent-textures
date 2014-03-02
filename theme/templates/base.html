@@ -3,19 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Transparent Textures</title>
+  <title>{% block title %}Transparent Textures{% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="favicon.png">
-  <script type="text/javascript" src="//use.typekit.net/wpz6ttu.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <link rel="stylesheet" href="theme/css/all.css" />
+  <link rel="stylesheet" href="/theme/css/all.css" />
   <style>
-    body {
-      background-color: black;
-    }
+    {% block styleblock %}
+    body {background-color: black;}
+    {% endblock %}
   </style>
 </head>
-<body>
+<body class="{% block bodyclass %}base{% endblock %}">
 
   <div class="header">
     <div class="container">
@@ -25,7 +23,7 @@
         </div>
         <div class="col-sm-4">
           <div class="search-container">
-            <input type="text" id="search" onkeyup="filter(this)" placeholder="Filter patterns (e.g. stripes, fabric, etc.)"/>
+            <input type="text" id="search" onkeyup="filterPatterns(this)" placeholder="Filter patterns (e.g. stripes, fabric, etc.)"/>
             <span class="searchicon glyphicon glyphicon-search"></span>
           </div>
         </div>
@@ -34,37 +32,14 @@
   </div>
 
   <div class="container main-container">
-      <div class="col-sm-3 sidebar-placeholder">
-      </div>
-      <div class="sidebar col-sm-3">
-        <p>Standing on the shoulders of <a href="http://www.subtlepatterns.com" target="_blank">Subtle Patterns</a>. Built and maintained by <a href="http://twitter.com/mikehearn" target="_blank">@mikehearn</a>.</p>
-        <div class="row">
-          <div class="col-sm-12">
-            <h4>1. Choose a Color</h4>
-            <input class="hexbox"/ placeholder="Click to choose a color.">
-            <input class="colorpicker"/ placeholder="Click to choose a color.">
-          </div>
-          <div class="col-sm-12">
-            <h4>2. Choose a Pattern</h4>
-            <p><span class="current-pattern-is">Current pattern:</span><br/><span class="current-pattern">not selected</span>.
-            </div>
-            <div class="col-sm-12">
-              <h4>3. Grab the CSS</h4>
-              <textarea id="cssfield" style="width: 100%; height: 100px;"></textarea>
-              <button id="copy-button" class="btn btn-default btn-xs" data-clipboard-target="cssfield" title="Copy to clipboard.">Copy to clipboard</button><span class="copy-success"></span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-9 pattern-container">
-          {% block content%}
-          {% endblock %}
-      </div>
+  {% block content %}
+  {% endblock %}
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-  <script src="theme/js/plugins.js"></script>
+  <script src="/theme/js/plugins.js"></script>
   <script>{% block scripts %}{% endblock scripts %}</script>
-  <script src="theme/js/main.js"></script>
+  <script src="/theme/js/main.js"></script>
   {% include 'analytics.html' %}
 </body>
 </html>

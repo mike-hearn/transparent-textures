@@ -1,33 +1,38 @@
 {% extends "base.html" %}
+
 {% block content %}
 <section id="content">
-{% block title %}{% endblock %}
-{% block content_title %}{% endblock %}
 
-<ol id="post-list">
+{% include 'sidebar.html' %}
 
-{% for article in articles_page.object_list | sort(attribute="date", reverse=True) %}
+{# Start pattern list #}
+<div class="patterns col-sm-9">
+
+<ol id="pattern-list">
+
+{% for article in articles_page.object_list | sort(attribute="title", reverse=False) %}
 <li>
-    <div class="pattern-container col-sm-6">
-        {% if article.imgur %}
-        <div class="pattern clickable lazy" data-original="{{ article.imgur }}" style="background-image: url('/theme/images/transparent.png');">
-        {% else %}
-        <div class="pattern clickable lazy" data-original="/theme/images/patterns/{{ article.slug }}.png" style="background-image: url('/theme/images/transparent.png');">
-        {% endif %}
-            <div class="pattern-info">
-                <h4 class="pattern-title">{{ article.title }}</h4>
-                <p>Made by {% if article.authorsite %}<a href="{{ article.authorsite }}" target="_blank">{% endif %}{{ article.author }}{%if article.authorsite %}</a>{% endif %}</p>
-                <p style="display:none;">{% for tag in article.tags %}{{tag}} {% endfor %}</p>
-           </div>
-       </div>
-   </div>
+  <div class="pattern-container col-sm-6">
+    <div class="pattern clickable lazy" data-original="/theme/images/patterns/{{ article.slug }}.png" style="background-image: url('/theme/images/transparent.png');">
+      <div class="pattern-info">
+        <h4 class="pattern-title">{{ article.title }}</h4>
+        <p>Made by {% if article.authorsite %}<a href="{{ article.authorsite }}" target="_blank">{% endif %}{{ article.author }}{%if article.authorsite %}</a>{% endif %}</p>
+        <p style="display:none;">{% for tag in article.tags %}{{tag}} {% endfor %}</p>
+        <a href="{{article.url}}" class="pattern-link">Link</a>
+      </div>
+    </div>
+  </div>
 </li>
 {% endfor %}
 
-</ol><!-- /#posts-list -->
-{% include 'pagination.html' %}
-</section><!-- /#content -->
+</ol>
+
+</div>
+{# End pattern list #}
+
+</section>
 {% endblock content %}
+
 {% block scripts %}
-    var patterns = [{% for article in articles_page.object_list | sort(attribute="title") %} ["{{ article.title }}", "{% if article.imgur %}{{article.imgur}}{% else %}/theme/images/patterns/{{ article.slug }}.png{% endif %}"],{% endfor %}];
+var patterns = [{% for article in articles_page.object_list | sort(attribute="title") %} ["{{ article.title }}", "{% if article.imgur %}{{article.imgur}}{% else %}/theme/images/patterns/{{ article.slug }}.png{% endif %}"],{% endfor %}];
 {% endblock scripts %}

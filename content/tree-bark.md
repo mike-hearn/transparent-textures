@@ -5,3 +5,4 @@ slug: tree-bark
 author: GetDiscount
 authorsite: http://getdiscount.co.uk/
 original: http://subtlepatterns.com/tree-bark/
+tags: featured,

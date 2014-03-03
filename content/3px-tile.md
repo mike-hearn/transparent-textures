@@ -5,3 +5,4 @@ slug: 3px-tile
 author: Gre3g
 authorsite: http://gre3g.livejournal.com
 original: http://subtlepatterns.com/3px-tile/
+tags: featured,

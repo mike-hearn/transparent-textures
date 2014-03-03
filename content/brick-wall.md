@@ -5,3 +5,4 @@ slug: brick-wall
 author: Benjamin Ward
 authorsite: 
 original: http://subtlepatterns.com/brick-wall/
+tags: featured, wall

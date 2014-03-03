@@ -5,3 +5,4 @@ slug: paper-fibers
 author: Heliodor jalba.
 authorsite: http://about.me/heliodor
 original: http://subtlepatterns.com/paper-fibers/
+tags: featured,

@@ -5,4 +5,4 @@ slug: lined-paper-2
 author: Gjermund Gustavsen
 authorsite: http://www.tight.no
 original: http://subtlepatterns.com/lined-paper-2/
-tags: lines,
+tags: lines, featured

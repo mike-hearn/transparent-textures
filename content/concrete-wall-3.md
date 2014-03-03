@@ -5,3 +5,4 @@ slug: concrete-wall-3
 author: Atle Mo
 authorsite: http://atlemo.com
 original: http://subtlepatterns.com/concrete-wall-3/
+tags: featured, wall

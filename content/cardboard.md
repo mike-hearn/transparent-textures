@@ -5,4 +5,4 @@ slug: cardboard
 author: Atle Mo
 authorsite: http://atlemo.com
 original: http://subtlepatterns.com/cardboard/
-tags: paper,
+tags: paper, featured,

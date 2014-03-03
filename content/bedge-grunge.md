@@ -5,3 +5,4 @@ slug: bedge-grunge
 author: Alex Tapein.
 authorsite: http://www.tapein.com
 original: http://subtlepatterns.com/bedge-grunge/
+tags: featured, noise,

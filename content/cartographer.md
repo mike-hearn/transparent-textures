@@ -5,3 +5,4 @@ slug: cartographer
 author: Sam Feyaerts
 authorsite: http://sam.feyaerts.me
 original: http://subtlepatterns.com/cartographer/
+tags: featured,

@@ -5,4 +5,4 @@ slug: asfalt-light
 author: Atle Mo
 authorsite: http://www.atlemo.com/
 original: http://subtlepatterns.com/asfalt/
-tags: space, stars
+tags: space, stars, featured, noise

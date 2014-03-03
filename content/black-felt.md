@@ -5,3 +5,4 @@ slug: black-felt
 author: E. van Zummeren
 authorsite: http://www.evanzummeren.com
 original: http://subtlepatterns.com/black-felt/
+tags: featured, fabric

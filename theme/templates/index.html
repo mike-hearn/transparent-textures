@@ -11,15 +11,13 @@
 <ol id="pattern-list">
 
 {% for article in articles_page.object_list | sort(attribute="title", reverse=False) %}
-<li>
-  <div class="pattern-container col-sm-6">
-    <div class="pattern clickable lazy" data-original="/theme/images/patterns/{{ article.slug }}.png" style="background-image: url('/theme/images/transparent.png');">
-      <div class="pattern-info">
-        <h4 class="pattern-title">{{ article.title }}</h4>
-        <p>Made by {% if article.authorsite %}<a href="{{ article.authorsite }}" target="_blank">{% endif %}{{ article.author }}{%if article.authorsite %}</a>{% endif %}</p>
-        <p style="display:none;">{% for tag in article.tags %}{{tag}} {% endfor %}</p>
-        <a href="{{article.url}}" class="pattern-link">Link</a>
-      </div>
+<li class="pattern-container col-sm-6 {% if 'featured' in article.tags %}featured{% endif %}">
+  <div class="pattern clickable lazy" data-original="/theme/images/patterns/{{ article.slug }}.png" style="background-image: url('/theme/images/transparent.png');">
+    <div class="pattern-info">
+      <h4 class="pattern-title">{{ article.title }}</h4>
+      <p>Made by {% if article.authorsite %}<a href="{{ article.authorsite }}" target="_blank">{% endif %}{{ article.author }}{%if article.authorsite %}</a>{% endif %}</p>
+      <p style="display:none;">{% for tag in article.tags %}{{tag}} {% endfor %}</p>
+      <a href="{{article.url}}" class="pattern-link">Link</a>
     </div>
   </div>
 </li>

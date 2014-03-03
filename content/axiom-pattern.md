@@ -5,3 +5,4 @@ slug: axiom-pattern
 author: Struck Axiom
 authorsite: http://www.struckaxiom.com
 original: http://subtlepatterns.com/axiom-pattern/
+tags: featured, diamonds,

@@ -5,3 +5,4 @@ slug: black-thread
 author: Listvetra
 authorsite: http://listvetra.ru/
 original: http://subtlepatterns.com/black-thread/
+tags: featured, geometric

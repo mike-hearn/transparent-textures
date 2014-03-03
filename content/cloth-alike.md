@@ -5,3 +5,4 @@ slug: cloth-alike
 author: Peax Webdesign
 authorsite: http://www.peax-webdesign.com
 original: http://subtlepatterns.com/cloth-alike/
+tags: featured, fabric,

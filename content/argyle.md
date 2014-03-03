@@ -4,4 +4,4 @@ imgur: http://i.imgur.com/2bjJwlf.png
 slug: argyle
 author: Will Monson
 original: http://subtlepatterns.com/argyle/
-
+tags: featured, fabric

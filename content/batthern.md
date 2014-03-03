@@ -5,3 +5,4 @@ slug: batthern
 author: Factorio.us Collective
 authorsite: http://factorio.us/
 original: http://subtlepatterns.com/batthern/
+tags: featured, squares,

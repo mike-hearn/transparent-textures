@@ -5,3 +5,4 @@ slug: clean-gray-paper
 author: Paul Phönixweiß
 authorsite: http://phoenixweiss.me
 original: http://subtlepatterns.com/clean-gray-paper/
+tags: featured, paper

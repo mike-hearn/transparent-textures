@@ -5,3 +5,4 @@ slug: exclusive-paper
 author: Atle Mo
 authorsite: http://www.atlemo.com/
 original: http://subtlepatterns.com/exclusive-paper/
+tags: featured,

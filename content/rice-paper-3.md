@@ -5,3 +5,4 @@ slug: rice-paper-3
 author: Atle Mo
 authorsite: http://atlemo.com
 original: http://subtlepatterns.com/rice-paper-3/
+tags: featured,

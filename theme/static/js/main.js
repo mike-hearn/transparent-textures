@@ -8,17 +8,29 @@ function changeCSSTextField(hex, url) {
 }
 
 function filterPatterns(element) {
-    $('body,html').scroll();
     var value = $(element).val().toLowerCase();
 
-    $("#pattern-list > li").each(function() {
-        if ($(this).text().toLowerCase().search(value) > -1) {
-            $(this).show();
-        }
-        else {
-            $(this).hide();
-        }
-    });
+    if (value.length > 2) {
+
+        $("#pattern-list > li").each(function() {
+            if ($(this).text().toLowerCase().search(value) > -1) {
+                $(this).show();
+            }
+            else {
+                $(this).hide();
+            }
+        });
+        $('body,html').scroll();
+    }
+    else {
+        $("#pattern-list > li").hide();
+        $("#pattern-list > .featured").show();
+    }
+
+    if (value == "all") {
+        $("#pattern-list > li").show();
+        $('body,html').scroll();
+    }
 }
 
 function instantiateColorpicker(color) {

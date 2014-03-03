@@ -5,3 +5,4 @@ slug: cardboard-flat
 author: Appleshadow
 authorsite: 
 original: http://subtlepatterns.com/cardboard-flat/
+tags: featured, paper

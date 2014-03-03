@@ -5,4 +5,4 @@ slug: arches
 author: Kim Ruddock
 authorsite: http://www.webdesigncreare.co.uk/
 original: http://subtlepatterns.com/arches/
-
+tags: featured,

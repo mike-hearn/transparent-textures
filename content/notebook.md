@@ -5,4 +5,4 @@ slug: notebook
 author: HQvectors
 authorsite: http://www.hqvectors.com
 original: http://subtlepatterns.com/notebook/
-tags: paper
+tags: paper, featured

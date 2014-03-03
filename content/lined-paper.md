@@ -5,4 +5,4 @@ slug: lined-paper
 author: Are Sundnes
 authorsite: http://www.paranaiv.no
 original: http://subtlepatterns.com/lined-paper/
-tags: lines,
+tags: lines, featured

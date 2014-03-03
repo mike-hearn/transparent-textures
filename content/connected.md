@@ -5,3 +5,4 @@ slug: connected
 author: Mark Collins
 authorsite: http://pixxel.co/
 original: http://subtlepatterns.com/connected/
+tags: featured,

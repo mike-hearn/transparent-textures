@@ -5,3 +5,4 @@ slug: checkered-light-emboss
 author: Alex Parker
 authorsite: http://twitter.com/misterparker
 original: http://subtlepatterns.com/checkered-light-emboss/
+tags: featured, squares, grid

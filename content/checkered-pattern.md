@@ -5,3 +5,4 @@ slug: checkered-pattern
 author: Radosław Rzepecki
 authorsite: http://designcocktails.com
 original: http://subtlepatterns.com/checkered-pattern/
+tags: featured,

@@ -5,4 +5,4 @@ slug: clean-textile
 author: N8rx
 authorsite: 
 original: http://subtlepatterns.com/clean-textile/
-tags: cloth,
+tags: featured, fabric

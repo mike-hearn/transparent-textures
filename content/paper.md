@@ -5,3 +5,4 @@ slug: paper
 author: Atle Mo
 authorsite: http://www.atlemo.com/
 original: http://subtlepatterns.com/paper-1/
+tags: featured,

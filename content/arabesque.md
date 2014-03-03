@@ -5,3 +5,4 @@ slug: arabesque
 author: David Sanchez
 authorsite: http://www.twitter.com/davidsancar
 original: http://subtlepatterns.com/arabesque/
+tags: featured,

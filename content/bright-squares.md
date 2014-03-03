@@ -5,3 +5,4 @@ slug: bright-squares
 author: Waseem Dahman
 authorsite: http://twitter.com/dwaseem
 original: http://subtlepatterns.com/bright-squares/
+tags: featured, squares

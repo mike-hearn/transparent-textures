@@ -5,3 +5,4 @@ slug: 45-degree-fabric-dark
 author: Atle Mo
 authorsite: http://www.atlemo.com
 original: http://subtlepatterns.com/awesome-pattern/
+tags: featured, denim, fabric

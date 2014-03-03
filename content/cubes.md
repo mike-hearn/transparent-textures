@@ -5,3 +5,4 @@ slug: cubes
 author: Sander Ottens
 authorsite: http://www.experimint.nl
 original: http://subtlepatterns.com/cubes/
+tags: featured, geometric

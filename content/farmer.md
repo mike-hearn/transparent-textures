@@ -5,3 +5,4 @@ slug: farmer
 author: Fabian Schultz.
 authorsite: http://fabianschultz.de
 original: http://subtlepatterns.com/farmer/
+tags: featured,

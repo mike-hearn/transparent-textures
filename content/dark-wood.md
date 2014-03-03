@@ -5,3 +5,4 @@ slug: dark-wood
 author: Omar Alvarado
 authorsite: http://www.oaadesigns.com
 original: http://subtlepatterns.com/dark-wood/
+tags: featured,

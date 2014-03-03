@@ -5,4 +5,4 @@ slug: gplay
 author: Dimitrie Hoekstra.
 authorsite: http://dhesign.com
 original: http://subtlepatterns.com/gplay/
-tags: cubes, squares
+tags: cubes, squares, geometric, featured

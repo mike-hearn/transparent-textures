@@ -1,0 +1,10 @@
+
+var pattern_data = {"data" : [{% for article in articles_page.object_list | sort(attribute="title", reverse=False) %}
+{
+	"title" : "{{article.title}}",
+	"slug" : "{{article.slug}}",
+	"url" : "{{article.url}}",
+	"search_string" : "{{article.title}} {% for tag in article.tags %}{{tag}} {% endfor %}",
+	"png" : "/theme/images/patterns/{{ article.slug }}.png"
+},
+{% endfor %}]};

@@ -133,8 +133,19 @@ ol {
 		}
 		.pattern-link {
 			position: absolute;
-			bottom: 28px;
-			right: 26px;
+			bottom: 33px;
+			right: 29px;
+			@media screen and (max-width: $screen-sm - 1) {
+				bottom: 10px;
+			}
+		}
+		.pattern-download {
+			position: absolute;
+			bottom: 33px;
+			right: 85px;
+			@media screen and (max-width: $screen-sm - 1) {
+				bottom: 10px;
+			}
 		}
 	}
 }

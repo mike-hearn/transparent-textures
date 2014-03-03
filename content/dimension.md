@@ -5,3 +5,4 @@ slug: dimension
 author: Luuk van Baars
 authorsite: http://luuk.ca
 original: http://subtlepatterns.com/dimension/
+tags: featured,

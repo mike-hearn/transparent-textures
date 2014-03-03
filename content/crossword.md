@@ -5,3 +5,4 @@ slug: crossword
 author: Ideawebme
 authorsite: http://www.ideaweb.me
 original: http://subtlepatterns.com/crossword/
+tags: featured,

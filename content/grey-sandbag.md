@@ -5,3 +5,4 @@ slug: grey-sandbag
 author: Diogo Silva
 authorsite: http://www.diogosilva.net
 original: http://subtlepatterns.com/grey-sandbag/
+tags: featured,

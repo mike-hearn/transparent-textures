@@ -5,3 +5,4 @@ slug: diagonal-noise
 author: Christopher Burton
 authorsite: http://ChristopherBurton.net
 original: http://subtlepatterns.com/diagonal-noise/
+tags: featured, diagonal, noise

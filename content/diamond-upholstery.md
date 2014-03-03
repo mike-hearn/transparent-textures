@@ -5,4 +5,4 @@ slug: diamond-upholstery
 author: Dimitar Karaytchev
 authorsite: http://hellogrid.com
 original: http://subtlepatterns.com/diamond-upholstery/
-tags: gradient,
+tags: featured, gradient,

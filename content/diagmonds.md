@@ -5,3 +5,4 @@ slug: diagmonds
 author: INS
 authorsite: http://www.flickr.com/photos/ins
 original: http://subtlepatterns.com/diagmonds/
+tags: featured, diamonds,

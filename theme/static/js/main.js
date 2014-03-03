@@ -60,12 +60,12 @@ function setBGColorAndPattern() {
     var default_background = colors[Math.floor(Math.random() * colors.length)];
     var default_pattern_title, default_pattern;
     if ($('body').is('.base')) {
-        var default_pattern_array = patterns[Math.floor(Math.random() * patterns.length)];
-        default_pattern = default_pattern_array[1];
-        default_pattern_title = default_pattern_array[0];
+        var default_pattern_array = pattern_data.data[Math.floor(Math.random() * pattern_data.data.length)];
+        default_pattern = default_pattern_array.png;
+        default_pattern_title = default_pattern_array.title;
     }
 
-    if ($('body').is('.article')) {
+    if ( $('body').is('.article') ) {
         default_pattern = pattern;
         default_pattern_title = pattern_title;
     }

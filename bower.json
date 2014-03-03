@@ -2,10 +2,10 @@
   "name": "transparent-textures",
   "version": "0.0.0",
   "dependencies": {
-    "bootstrap-sass-official" : "*",
-    "jquery-minicolors" : "*",
-    "jquery.lazyload" : "*",
-    "zeroclipboard" : "*"
+    "bootstrap-sass-official": "*",
+    "jquery-minicolors": "*",
+    "jquery.lazyload": "*",
+    "zeroclipboard": "*"
   },
   "authors": [
     "Mike Hearn <git@mikehearn.net>"
@@ -20,5 +20,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "font-awesome": "~4.0.3"
+  }
 }

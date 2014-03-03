@@ -5,3 +5,4 @@ slug: fake-brick
 author: Marat
 authorsite: 
 original: http://subtlepatterns.com/fake-brick/
+tags: featured,

@@ -10,14 +10,15 @@
 
 <ol id="pattern-list">
 
-{% for article in articles_page.object_list | sort(attribute="title", reverse=False) %}
+{% for article in articles_page.object_list | sort(attribute="title", reverse=False) if "featured" in article.tags %}
 <li class="pattern-container col-sm-6 {% if 'featured' in article.tags %}featured{% endif %}">
   <div class="pattern clickable lazy" data-original="/theme/images/patterns/{{ article.slug }}.png" style="background-image: url('/theme/images/transparent.png');">
     <div class="pattern-info">
       <h4 class="pattern-title">{{ article.title }}</h4>
       <p>Made by {% if article.authorsite %}<a href="{{ article.authorsite }}" target="_blank">{% endif %}{{ article.author }}{%if article.authorsite %}</a>{% endif %}</p>
       <p style="display:none;">{% for tag in article.tags %}{{tag}} {% endfor %}</p>
-      <a href="{{article.url}}" class="pattern-link">Link</a>
+      <a href="/theme/images/patterns/{{article.slug}}.png" class="pattern-download" download><i class="fa fa-download"></i> Download</a>
+      <a href="{{article.url}}" class="pattern-link"><i class="fa fa-link"></i> Link</a>
     </div>
   </div>
 </li>
@@ -32,5 +33,5 @@
 {% endblock content %}
 
 {% block scripts %}
-var patterns = [{% for article in articles_page.object_list | sort(attribute="title") %} ["{{ article.title }}", "{% if article.imgur %}{{article.imgur}}{% else %}/theme/images/patterns/{{ article.slug }}.png{% endif %}"],{% endfor %}];
+{% include 'data.html' %}
 {% endblock scripts %}

@@ -5,3 +5,4 @@ slug: diagonales-decalees
 author: Graphiste.
 authorsite: http://www.peax-webdesign.com
 original: http://subtlepatterns.com/diagonales-decalees/
+tags: features,

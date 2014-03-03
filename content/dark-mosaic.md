@@ -5,3 +5,4 @@ slug: dark-mosaic
 author: John Burks
 authorsite: 
 original: http://subtlepatterns.com/dark-mosaic/
+tags: featured,

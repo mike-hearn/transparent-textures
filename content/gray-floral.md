@@ -5,3 +5,4 @@ slug: gray-floral
 author: Lauren
 authorsite: http://laurenharrison.org
 original: http://subtlepatterns.com/gray-floral/
+tags: featured, flowers,

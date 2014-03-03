@@ -5,3 +5,4 @@ slug: cutcube
 author: Michael Atkins
 authorsite: http://cubecolour.co.uk
 original: http://subtlepatterns.com/cutcube/
+tags: featured, geometric,

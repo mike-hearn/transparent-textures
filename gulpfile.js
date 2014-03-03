@@ -3,13 +3,15 @@ var gutil = require('gulp-util');
 var sass = require('gulp-ruby-sass');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var minifyCSS = require('gulp-minify-css');
 
 var sass_paths = ['./theme/static/css/styles.scss',
                    './theme/static/css/_variables.scss',
                    './theme/static/css/_bootstrap.scss',
                  ];
 var css_paths = ['./bower_components/jquery-minicolors/jquery.minicolors.css',
-                   './theme/static/css/styles.css'
+                 './bower_components/font-awesome/css/font-awesome.min.css',
+                 './theme/static/css/styles.css'
                  ];
 
 gulp.task('js', ['plugins'], function () {
@@ -47,6 +49,7 @@ gulp.task('sass', function () {
 gulp.task('css', function(){
     gulp.src(css_paths)
         .pipe(concat('all.css'))
+        .pipe(minifyCSS())
         .pipe(gulp.dest('./theme/static/css'));
 });
 

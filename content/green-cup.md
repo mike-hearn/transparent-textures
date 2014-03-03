@@ -5,3 +5,4 @@ slug: green-cup
 author: Atle Mo
 authorsite: http://www.atlemo.com
 original: http://subtlepatterns.com/green-cup/
+tags: featured,

@@ -5,3 +5,4 @@ slug: escheresque
 author: Jan Meeus
 authorsite: http://dribbble.com/janmeeus
 original: http://subtlepatterns.com/escheresque/
+tags: featured, geometric,

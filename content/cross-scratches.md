@@ -5,3 +5,4 @@ slug: cross-scratches
 author: Andrey Ovcharov
 authorsite: http://www.ovcharov.me/
 original: http://subtlepatterns.com/cross-scratches/
+tags: featured,

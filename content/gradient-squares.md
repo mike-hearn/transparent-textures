@@ -5,4 +5,4 @@ slug: gradient-squares
 author: Brankic1979.
 authorsite: http://www.brankic1979.com
 original: http://subtlepatterns.com/gradient-squares/
-tags: diamond,
+tags: diamond, gradient, featured,

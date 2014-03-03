@@ -5,3 +5,4 @@ slug: double-lined
 author: Adam Anlauf
 authorsite: http://www.depcore.pl
 original: http://subtlepatterns.com/double-lined/
+tags: featured,

@@ -5,3 +5,4 @@ slug: green-dust-and-scratches
 author: Atle Mo
 authorsite: http://atlemo.com
 original: http://subtlepatterns.com/green-dust-scratches/
+tags: featured, noise,

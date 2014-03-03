@@ -5,3 +5,4 @@ slug: dust
 author: Dominik Kiss
 authorsite: http://www.werk.sk
 original: http://subtlepatterns.com/dust/
+tags: featured,

@@ -5,3 +5,4 @@ slug: food
 author: Ilya
 authorsite: 
 original: http://subtlepatterns.com/food/
+tags: featured,

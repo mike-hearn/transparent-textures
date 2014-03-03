@@ -5,3 +5,4 @@ slug: grid-noise
 author: Daivid Serif
 authorsite: 
 original: http://subtlepatterns.com/grid-noise/
+tags: featured,

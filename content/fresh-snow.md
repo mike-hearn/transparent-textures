@@ -5,4 +5,4 @@ slug: fresh-snow
 author: Kerstkaarten
 authorsite: http://www.fotokaarten.nl/kerst.html
 original: http://subtlepatterns.com/fresh-snow/
-tags: clouds,
+tags: clouds, featured,

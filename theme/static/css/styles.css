@@ -5095,8 +5095,18 @@ ol {
       transition: border 0.2s ease; }
     .pattern-container .pattern .pattern-link {
       position: absolute;
-      bottom: 28px;
-      right: 26px; }
+      bottom: 33px;
+      right: 29px; }
+      @media screen and (max-width: 767px) {
+        .pattern-container .pattern .pattern-link {
+          bottom: 10px; } }
+    .pattern-container .pattern .pattern-download {
+      position: absolute;
+      bottom: 33px;
+      right: 85px; }
+      @media screen and (max-width: 767px) {
+        .pattern-container .pattern .pattern-download {
+          bottom: 10px; } }
 
 .featured {
   display: block; }

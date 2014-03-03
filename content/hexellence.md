@@ -5,3 +5,4 @@ slug: hexellence
 author: Kim Ruddock
 authorsite: http://www.webdesigncreare.co.uk
 original: http://subtlepatterns.com/hexellence/
+tags: featured, geometric,

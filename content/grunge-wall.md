@@ -5,3 +5,4 @@ slug: grunge-wall
 author: Adam Anlauf
 authorsite: http://www.depcore.pl
 original: http://subtlepatterns.com/grunge-wall/
+tags: featured,

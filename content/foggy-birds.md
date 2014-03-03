@@ -5,3 +5,4 @@ slug: foggy-birds
 author: Pete Fecteau
 authorsite: http://buttonpresser.com
 original: http://subtlepatterns.com/foggy-birds/
+tags: featured,

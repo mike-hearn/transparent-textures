@@ -5,3 +5,4 @@ slug: fabric-plaid
 author: James Basoo
 authorsite: http://twitter.com/jbasoo
 original: http://subtlepatterns.com/fabric-plaid/
+tags: fabric, featured,

@@ -5,3 +5,4 @@ slug: groovepaper
 author: Isaac
 authorsite: http://graphicriver.net/user/krispdesigns
 original: http://subtlepatterns.com/groovepaper/
+tags: featured, paper,

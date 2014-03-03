@@ -5,4 +5,4 @@ slug: dark-stripes
 author: Stefan Aleksić
 authorsite: http://www.facebook.com/stefanaleksic88
 original: http://subtlepatterns.com/dark-stripes/
-
+tags: featured,

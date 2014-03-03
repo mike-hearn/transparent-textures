@@ -5,3 +5,4 @@ slug: crisp-paper-ruffles
 author: Tish
 authorsite: http://www.ayonnette.blogspot.com
 original: http://subtlepatterns.com/crisp-paper-ruffles/
+tags: featured,

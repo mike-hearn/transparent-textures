@@ -29,7 +29,7 @@ function filterPatterns(element) {
                           '<h4 class="pattern-title">' + val.title + '</h4>' +
                           '<p>Made by <a href="' + val.authorsite + '" target="_blank">' + val.author + '</a></p>' +
                           '<a href="/theme/images/patterns/tree-bark.png" class="pattern-download" download><i class="fa fa-download"></i> Download</a>' +
-                          '<a href="' + val.slug + 'html" class="pattern-link"><i class="fa fa-link"></i> Link</a>' +
+                          '<a href="' + val.slug + '.html" class="pattern-link"><i class="fa fa-link"></i> Link</a>' +
                           '</div></div></li>';
 
                 li_list.push(element);

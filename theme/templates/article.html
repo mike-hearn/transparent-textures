@@ -7,9 +7,11 @@
 {% block content %}
 
 {% include 'sidebar.html' %}
-<div class="things col-sm-9">
-	<h3>{{article.title}}</h3>
-	<div class="pattern-box" style="border: 1px solid black; height: 200px; -webkit-filter: contrast(10); background-image: url(/theme/images/patterns/black-thread-light.png);">
+<div class="article-container col-sm-8 col-md-9 col-lg-10">
+	<div class="single-pattern-container">
+		<h3 class="pattern-title"><span>{{article.title}}</span></h3>
+		<p>Created by {{article.author}}. Originally found at <a href="{{article.original}}">Subtle Patterns</a>.</p>
+		<a class="btn btn-default" href="/theme/images/patterns/{{article.slug}}.png" download>Download {{ article.slug }}.png</a>
 	</div>
 </div>
 

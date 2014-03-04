@@ -48,7 +48,7 @@ gulp.task('sass', function () {
 
 gulp.task('css', function(){
     gulp.src(css_paths)
-        .pipe(concat('all.css'))
+        .pipe(concat('all.min.css'))
         .pipe(minifyCSS())
         .pipe(gulp.dest('./theme/static/css'));
 });

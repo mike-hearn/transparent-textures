@@ -40,6 +40,11 @@ EXTRA_PATH_METADATA = {
 	'extra/favicon.png': {'path': 'favicon.png'},
 }
 
+STATIC_PATHS = [
+    'extra/favicon.png',
+    'patterns'
+    ]
+
 TEMPLATE_PAGES = {'data.html' : 'data.json'}
 
 GOOGLE_ANALYTICS = 'UA-48127789-1'

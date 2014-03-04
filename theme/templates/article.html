@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title }} - {{ super() }}{% endblock %}
 {% block styleblock %}
-	body {background-image: url(/theme/images/patterns/{{ article.slug }}.png);}
+	body {background-image: url(/patterns/{{ article.slug }}.png);}
 {% endblock %}
 {% block bodyclass %}article{% endblock %}
 {% block content %}
@@ -11,12 +11,12 @@
 	<div class="single-pattern-container">
 		<h3 class="pattern-title"><span>{{article.title}}</span></h3>
 		<p>Created by {{article.author}}. Originally found at <a href="{{article.original}}">Subtle Patterns</a>.</p>
-		<a class="btn btn-default" href="/theme/images/patterns/{{article.slug}}.png" download>Download {{ article.slug }}.png</a>
+		<a class="btn btn-default" href="/patterns/{{article.slug}}.png" download>Download {{ article.slug }}.png</a>
 	</div>
 </div>
 
 {% endblock %}
 {% block scripts %}
-var pattern = '/theme/images/patterns/{{ article.slug }}.png';
+var pattern = '/patterns/{{ article.slug }}.png';
 var pattern_title = '{{article.title}}';
 {% endblock %}

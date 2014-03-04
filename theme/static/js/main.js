@@ -8,28 +8,40 @@ function changeCSSTextField(hex, url) {
 }
 
 function filterPatterns(element) {
+    $('.searched').remove();
     var value = $(element).val().toLowerCase();
 
     if (value.length > 2) {
+        $initial_state.hide();
 
-        $("#pattern-list > li").each(function() {
-            if ($(this).text().toLowerCase().search(value) > -1) {
-                $(this).show();
-            }
-            else {
-                $(this).hide();
-            }
+        $.getJSON('/data.json', function(data) {
+            var matched_objects = data.data.filter(function(pattern) {
+                return pattern.search_string.toLowerCase().indexOf(value) > -1;});
+
+            var li_list = [];
+
+            $(matched_objects).each(function(idx, val) {
+
+                var element = '<li class="pattern-container col-sm-6 searched">' +
+                          '<div class="pattern clickable lazy" data-original="/theme/images/patterns/' + val.slug + '.png" ' +
+                          'style="background-image: url(/theme/images/transparent.png);">' + //todo: escape data.html slashes
+                          '<div class="pattern-info">' +
+                          '<h4 class="pattern-title">' + val.title + '</h4>' +
+                          '<p>Made by <a href="' + val.authorsite + '" target="_blank">' + val.author + '</a></p>' +
+                          '<a href="/theme/images/patterns/tree-bark.png" class="pattern-download" download><i class="fa fa-download"></i> Download</a>' +
+                          '<a href="' + val.slug + 'html" class="pattern-link"><i class="fa fa-link"></i> Link</a>' +
+                          '</div></div></li>';
+
+                li_list.push(element);
+            });
+
+            $("#pattern-list").append(li_list);
+            instantiateClickablePatterns();
+            instantiateLazyLoading();
         });
-        $('body,html').scroll();
     }
     else {
-        $("#pattern-list > li").hide();
-        $("#pattern-list > .featured").show();
-    }
-
-    if (value == "all") {
-        $("#pattern-list > li").show();
-        $('body,html').scroll();
+        $initial_state.show();
     }
 }
 
@@ -57,8 +69,10 @@ function setBGColorAndPattern() {
                   "#004f8c", "#00238c", "#25008a", "#5c008a", "#8a008a", "#8a005e",
                   "#8a0027"];
 
-    var default_background = colors[Math.floor(Math.random() * colors.length)];
-    var default_pattern_title, default_pattern;
+    var default_background = colors[Math.floor(Math.random() * colors.length)],
+        default_pattern_title,
+        default_pattern;
+
     if ($('body').is('.base')) {
         var default_pattern_array = pattern_data.data[Math.floor(Math.random() * pattern_data.data.length)];
         default_pattern = default_pattern_array.png;
@@ -78,11 +92,35 @@ function setBGColorAndPattern() {
 
     //Set the hexbox color to the background
     $('.hexbox').val(default_background);
-    // Set the clickable items to be the same background color as the body
-    $('.clickable').css('background-color', default_background);
 
     return [default_background, default_pattern, default_pattern_title];
 
+}
+
+function instantiateClickablePatterns() {
+// All actions after a pattern is clicked on
+    var bg = $('body').css('background-color');
+    $('.clickable')
+        .css('background-color', bg)
+        .click( function() {
+
+            // Set the body background equal to the pattern clicked on
+            var bg_image = $(this).css('background-image');
+            $('body').css('background-image', bg_image);
+
+            //Set the 'current pattern' text
+            $('.current-pattern').text($(this).find('.pattern-title').text());
+
+            //Update the css text box
+            var hex = $('.hexbox').val(),
+                url = $('body').css('background-image');
+            changeCSSTextField(hex, url);
+        });
+}
+
+function instantiateLazyLoading() {
+    $("div.lazy").lazyload({threshold : 1000, effect: "fadeIn"});
+    $('body, html').scroll();
 }
 
 var colors_and_patterns = setBGColorAndPattern();
@@ -90,16 +128,21 @@ var default_background = colors_and_patterns[0],
     default_pattern = colors_and_patterns[1],
     default_pattern_title = colors_and_patterns[2];
 
+var $initial_state = $("#pattern-list").children();
+
 instantiateColorpicker(default_background);
-
-
-// Intantiate: lazy loading
-$("div.lazy").lazyload({threshold : 1000, effect: "fadeIn"});
+instantiateClickablePatterns();
+instantiateLazyLoading();
 
 // Initial CSS box text
 var hex = $('.hexbox').val(),
     url = $('body').css('background-image');
 changeCSSTextField(hex, url);
+
+// Listen for search input
+$('#search').on('input', function() {
+    filterPatterns(this);
+});
 
 // Initial 'Current pattern is...' text
 $(".current-pattern").text(default_pattern_title);
@@ -108,23 +151,6 @@ $(".current-pattern").text(default_pattern_title);
 $('.hexbox').change(function() {
     var value = $(this).val();
     $('.colorpicker').minicolors('value', value);
-});
-
-// All actions after a pattern is clicked on
-$('.clickable').click( function() {
-
-    background = $(this).css('background-image');
-
-    // Set the body background equal to the pattern clicked on
-    $('body').css('background-image', background);
-
-    //Set the 'current pattern' text
-    $('.current-pattern').text($(this).find('.pattern-title').text());
-
-    //Update the css text box
-    var hex = $('.hexbox').val(),
-        url = $('body').css('background-image');
-    changeCSSTextField(hex, url);
 });
 
 // Highlight all code in #cssfield on hover

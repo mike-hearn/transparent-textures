@@ -5082,34 +5082,29 @@ ol {
 .patterns {
   margin-top: 14px; }
 
-.pattern-container {
-  display: none; }
-  .pattern-container .pattern {
-    margin-bottom: 25px;
-    width: 100%;
-    height: 250px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    cursor: pointer; }
-    .pattern-container .pattern:hover {
-      border: 1px solid rgba(0, 0, 0, 0.4);
-      transition: border 0.2s ease; }
-    .pattern-container .pattern .pattern-link {
-      position: absolute;
-      bottom: 33px;
-      right: 29px; }
-      @media screen and (max-width: 767px) {
-        .pattern-container .pattern .pattern-link {
-          bottom: 10px; } }
-    .pattern-container .pattern .pattern-download {
-      position: absolute;
-      bottom: 33px;
-      right: 85px; }
-      @media screen and (max-width: 767px) {
-        .pattern-container .pattern .pattern-download {
-          bottom: 10px; } }
-
-.featured {
-  display: block; }
+.pattern-container .pattern {
+  margin-bottom: 25px;
+  width: 100%;
+  height: 250px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer; }
+  .pattern-container .pattern:hover {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    transition: border 0.2s ease; }
+  .pattern-container .pattern .pattern-link {
+    position: absolute;
+    bottom: 33px;
+    right: 29px; }
+    @media screen and (max-width: 767px) {
+      .pattern-container .pattern .pattern-link {
+        bottom: 10px; } }
+  .pattern-container .pattern .pattern-download {
+    position: absolute;
+    bottom: 33px;
+    right: 85px; }
+    @media screen and (max-width: 767px) {
+      .pattern-container .pattern .pattern-download {
+        bottom: 10px; } }
 
 #cssfield {
   font-size: .9em; }

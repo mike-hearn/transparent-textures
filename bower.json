@@ -22,6 +22,7 @@
     "tests"
   ],
   "devDependencies": {
-    "font-awesome": "~4.0.3"
+    "font-awesome": "~4.0.3",
+    "jquery-cookie": "~1.4.0"
   }
 }

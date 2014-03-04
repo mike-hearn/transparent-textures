@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
+
 AUTHOR = u'Mike Hearn'
 SITENAME = u'Transparent Textures'
 SITEURL = 'http://www.transparenttextures.com'
@@ -19,7 +20,11 @@ TRANSLATION_FEED_ATOM = None
 DEFAULT_PAGINATION = False
 
 THEME = 'theme'
+
 READERS = {'html': None}
+
+PLUGIN_PATH = "plugins"
+PLUGINS = ['tipue_search',]
 
 PAGE_EXCLUDES = ((
 	'node_modules',
@@ -30,13 +35,11 @@ ARTICLE_EXCLUDES = ((
 	'node_modules',
 	'bower_components',
 	))
-IGNORE_FILES = (['README.md'])
 
-STATIC_PATHS = [
-    'extra/favicon.png',
-    ]
 EXTRA_PATH_METADATA = {
 	'extra/favicon.png': {'path': 'favicon.png'},
 }
+
+TEMPLATE_PAGES = {'data.html' : 'data.json'}
 
 GOOGLE_ANALYTICS = 'UA-48127789-1'

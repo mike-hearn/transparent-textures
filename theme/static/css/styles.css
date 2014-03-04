@@ -5059,10 +5059,8 @@ a {
   font-weight: 600; }
 
 ol {
-  list-style-type: none; }
-  @media screen and (max-width: 767px) {
-    ol {
-      padding-left: 0; } }
+  list-style-type: none;
+  padding: 0; }
 
 .pattern-container {
   margin-top: 5px; }

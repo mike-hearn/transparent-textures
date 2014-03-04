@@ -92,9 +92,7 @@ a {
 
 ol {
 	list-style-type: none;
-	@media screen and (max-width: $screen-sm - 1) {
-		padding-left: 0;
-	}
+	padding: 0;
 }
 
 .pattern-container {

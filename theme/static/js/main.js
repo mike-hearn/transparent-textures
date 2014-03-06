@@ -176,7 +176,6 @@ function createCanvasWallpaper(pattern, color, width, height, attachToAnchorCall
 function instantiateHiddenCanvas(color) {
 /* Create a canvas based on current background/color */
     $('canvas').remove();
-    console.log('happening');
 
     var width = $('#wallpaper_width').val(),
         height = $('#wallpaper_height').val(),
@@ -254,7 +253,7 @@ $(document).ready(function() {
         instantiateHiddenCanvas(default_background);
 
         $('.hexbox, .minicolors-panel, #wallpaper_width, #wallpaper_height')
-            .on('input mouseleave mouseup', function() {
+            .on('input mouseleave mouseup touchend', function() {
                 var color = $('.hexbox').val();
                 instantiateHiddenCanvas(color);
         });
@@ -275,7 +274,7 @@ $(document).ready(function() {
                 iphone4  : function() {changeResolutionandIcon(640,960,'iphone4');},
                 twitter  : function() {changeResolutionandIcon(520,260,'twitter');},
                 facebook : function() {changeResolutionandIcon(851,315,'facebook');},
-                ipad : function() {changeResolutionandIcon(1536,2048,'ipad');},
+                ipad     : function() {changeResolutionandIcon(1536,2048,'ipad');},
             };
 
             var value = $(this).val();

@@ -1,4 +1,12 @@
 function changeCSSTextField(hex, url) {
+    if (url.indexOf('http') < 0) {
+        url = 'http://' + window.location.host + url;
+    }
+
+    if (url.indexOf('url') < 0) {
+        url = 'url(' + url + ')';
+    }
+
     var css = "background-color: " + hex + ";\n" +
               "background-image: " + url + ";\n" +
               "/* This is mostly intended for prototyping; " +
@@ -7,8 +15,11 @@ function changeCSSTextField(hex, url) {
     $("#cssfield").val(css);
 }
 
-function filterPatterns(element) {
+function filterPatterns(element, $initial_state) {
+/* Filter the items based on searched text of > 2 characters */
+
     $('.searched').remove();
+
     var value = $(element).val().toLowerCase();
 
     if (value.length > 2) {
@@ -46,8 +57,7 @@ function filterPatterns(element) {
 }
 
 function instantiateColorpicker(color) {
-    $('.colorpicker').minicolors(
-    {
+    $('.colorpicker').minicolors({
         inline: true,
         control: 'saturation',
         defaultValue: color,
@@ -63,37 +73,44 @@ function instantiateColorpicker(color) {
 }
 
 function setBGColorAndPattern() {
+/* Set background color and choose random pattern */
 
-    // Start off with a random background color
+    $body = $('body');
+
     var colors = ["#851400", "#cc8800", "#878c00", "#338c00", "#008c41", "#008c8c",
                   "#004f8c", "#00238c", "#25008a", "#5c008a", "#8a008a", "#8a005e",
                   "#8a0027"];
 
-    var default_background = colors[Math.floor(Math.random() * colors.length)],
+    var default_background_color = colors[Math.floor(Math.random() * colors.length)],
+        default_pattern_array,
+        default_pattern,
         default_pattern_title,
-        default_pattern;
+        default_pattern_url;
 
-    if ($('body').is('.base')) {
-        var default_pattern_array = pattern_data.data[Math.floor(Math.random() * pattern_data.data.length)];
-        default_pattern = default_pattern_array.png;
-        default_pattern_title = default_pattern_array.title;
+    if ($body.is('.base')) {
+        default_pattern_array = $('#pattern-list li');
+        default_pattern = default_pattern_array[Math.floor((Math.random() * default_pattern_array.length))];
+        default_pattern_url = $(default_pattern).find('.pattern').data('original');
+        default_pattern_title = $(default_pattern).find('.pattern-title').text();
     }
 
-    if ( $('body').is('.article') ) {
-        default_pattern = pattern;
+    if ($body.is('.article')) {
+        default_pattern_url = pattern;
         default_pattern_title = pattern_title;
     }
 
-    // Load color & image from randomly chosen values
-    $('body').css({
-        'background-image' : 'url("'+default_pattern+'")',
-        'background-color' : default_background
+    $body.css({
+        'background-image' : 'url('+default_pattern_url+')',
+        'background-color' : default_background_color
     });
 
-    //Set the hexbox color to the background
-    $('.hexbox').val(default_background);
+    $('.hexbox').val(default_background_color);
+    $(".current-pattern").text(default_pattern_title);
 
-    return [default_background, default_pattern, default_pattern_title];
+    instantiateColorpicker(default_background_color);
+    changeCSSTextField(default_background_color, default_pattern_url);
+
+    return [default_background_color, default_pattern_url, default_pattern_title];
 
 }
 
@@ -123,64 +140,152 @@ function instantiateLazyLoading() {
     $('body, html').scroll();
 }
 
-var colors_and_patterns = setBGColorAndPattern();
-var default_background = colors_and_patterns[0],
-    default_pattern = colors_and_patterns[1],
-    default_pattern_title = colors_and_patterns[2];
+function createCanvasWallpaper(pattern, color, width, height, attachToAnchorCallback) {
+/* Draw canvas with background color and transparent PNG pattern overlay */
 
-var $initial_state = $("#pattern-list").children();
+    var can = document.createElement('canvas');
+    can.width = width;
+    can.height = height;
+    var ctx = can.getContext('2d');
 
-instantiateColorpicker(default_background);
-instantiateClickablePatterns();
-instantiateLazyLoading();
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.lineTo(0,height);
+    ctx.lineTo(width,height);
+    ctx.lineTo(width,0);
+    ctx.fillStyle = color;
+    ctx.fill();
 
-// Initial CSS box text
-var hex = $('.hexbox').val(),
-    url = $('body').css('background-image');
-changeCSSTextField(hex, url);
+    var imageObj = new Image();
+    function drawPattern() {
+        var pattern = ctx.createPattern(imageObj, "repeat");
+        ctx.fillStyle = pattern;
+        ctx.fill();
 
-// Listen for search input
-$('#search').on('input', function() {
-    filterPatterns(this);
-});
-
-// Initial 'Current pattern is...' text
-$(".current-pattern").text(default_pattern_title);
-
-// On user input to color input box, change the colorpicker as well
-$('.hexbox').change(function() {
-    var value = $(this).val();
-    $('.colorpicker').minicolors('value', value);
-});
-
-// Highlight all code in #cssfield on hover
-$("#cssfield").hover(
-    function () {
-       $(this).select();
-    },
-    function() {
-        window.getSelection().removeAllRanges();
+        var p = $('body').append(can);
+        $('canvas').hide();
+        var canvas_element = document.getElementsByTagName('canvas')[0];
+        attachToAnchorCallback(canvas_element);
     }
-);
 
-// Copy to clipboard code; copied almost straight from ZeroClipboard's example
-ZeroClipboard.config( { moviePath: '/theme/swf/ZeroClipboard.swf' } );
-var client = new ZeroClipboard($('#copy-button'));
+    imageObj.src = pattern;
+    imageObj.onload = drawPattern;
 
-client.on( "load", function(client) {
-} );
+}
 
-client.on( "complete", function(client, args) {
-    $('.copy-success').text('Copied!');
-    $('.copy-success').show();
-    $('.copy-success').fadeOut(2000);
-} );
+function instantiateHiddenCanvas(color) {
+/* Create a canvas based on current background/color */
+    $('canvas').remove();
+    console.log('happening');
 
-client.on( "noflash", function (client) {
-    $('#copy-button').hide();
-} );
+    var width = $('#wallpaper_width').val(),
+        height = $('#wallpaper_height').val(),
+        pattern = $('body').css('background-image').replace(/\(|\)|(^url)|"|'/g, ''),
+        title = $('.pattern-title').text().toLowerCase().replace(/[^A-z0-9]/g, '-');
 
-client.on( "wrongFlash", function (client,args) {
-    $('#copy-button').hide();
-} );
+    createCanvasWallpaper(pattern, color, width, height, function(canvas) {
+        var base64 = canvas.toDataURL('image/png');
+        $('.save-wallpaper-button').attr({
+            'href' : base64,
+            'download' : title + '-' + width + 'x' + height + '.png'
+        });
+    });
 
+}
+
+function instantiateSWFCopyButton() {
+/* Copy to clipboard code; copied almost straight from ZeroClipboard's example */
+
+    ZeroClipboard.config( { moviePath: '/theme/swf/ZeroClipboard.swf' } );
+    var client = new ZeroClipboard($('#copy-button'));
+
+    client.on( "load", function(client) {
+    } );
+
+    client.on( "complete", function(client, args) {
+        $('.copy-success').text('Copied!');
+        $('.copy-success').show();
+        $('.copy-success').fadeOut(2000);
+    } );
+
+    client.on( "noflash", function (client) {
+        $('#copy-button').hide();
+    } );
+
+    client.on( "wrongFlash", function (client,args) {
+        $('#copy-button').hide();
+    } );
+}
+
+$(document).ready(function() {
+
+    var colors_and_patterns = setBGColorAndPattern();
+    var default_background = colors_and_patterns[0],
+        default_pattern = colors_and_patterns[1],
+        default_pattern_title = colors_and_patterns[2];
+    var $initial_state = $("#pattern-list").children();
+
+    instantiateClickablePatterns();
+    instantiateLazyLoading();
+    instantiateSWFCopyButton();
+
+    /* Declare event listeners */
+
+    $('#search').on('input', function() {
+        filterPatterns(this, $initial_state);
+    });
+
+    $('.hexbox').change(function() {
+        var value = $(this).val();
+        $('.colorpicker').minicolors('value', value);
+    });
+
+    $("#cssfield").hover(
+        function () {
+           $(this).select();
+        },
+        function() {
+            window.getSelection().removeAllRanges();
+        }
+    );
+
+    if ($('body').is('.article')) {
+
+        instantiateHiddenCanvas(default_background);
+
+        $('.hexbox, .minicolors-panel, #wallpaper_width, #wallpaper_height')
+            .on('input mouseleave mouseup', function() {
+                var color = $('.hexbox').val();
+                instantiateHiddenCanvas(color);
+        });
+
+        $('#device_resolution').change(function() {
+
+            function changeResolutionandIcon(width, height, icon) {
+                $("#wallpaper_width").val(width);
+                $("#wallpaper_height").val(height);
+                $('.wallpaper-example').attr({
+                    'src' : '/theme/images/' + icon + '.png'
+                });
+            }
+
+            var callResChange = {
+                hd       : function() {changeResolutionandIcon(1920,1080,'monitor');},
+                iphone5  : function() {changeResolutionandIcon(640,1136,'iphone5');},
+                iphone4  : function() {changeResolutionandIcon(640,960,'iphone4');},
+                twitter  : function() {changeResolutionandIcon(520,260,'twitter');},
+                facebook : function() {changeResolutionandIcon(851,315,'facebook');},
+                ipad : function() {changeResolutionandIcon(1536,2048,'ipad');},
+            };
+
+            var value = $(this).val();
+            callResChange[value]();
+
+            var color = $('.hexbox').val();
+            instantiateHiddenCanvas(color);
+
+
+        });
+    }
+
+});

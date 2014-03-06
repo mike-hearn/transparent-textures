@@ -1,3 +1,5 @@
+$font-family-sans-serif: "proxima-nova","Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
 @import 'bootstrap';
 
 h1,h2,h3,h4,h5,h6,p{
@@ -195,11 +197,60 @@ ol {
 		padding-left: 50px;
 	}
 	padding-bottom: 30px;
+
+	p {
+		padding: 10px 0 10px 0;
+	}
+
 	.single-pattern-container {
 		margin-top: 20px;
-		padding-top: 5px;
-		padding-bottom: 40px;
+		padding: 5px 5% 40px 5%;
+		border-radius: 3px;
 		background-color: rgba(0,0,0,0.2);
 		text-align: center;
+		hr {
+			margin-top: 0px;
+			width: 60%;
+			border-top: 1px solid rgba(255,255,255,0.3);
+		}
 	}
+
+	.pattern-example {
+		border: 1px solid rgba(0,0,0,0.5);
+		margin-top: 10px;
+		margin-bottom: 30px;
+		background-color: white;
+		max-width: 200px;
+		max-height: 200px;
+		overflow: hidden;
+	}
+
+	.resolutions {
+		select {
+			width: 70%;
+		}
+		.select-resolution {
+			margin-bottom: 10px;
+		}
+		.resolution-input {
+			display: none;
+		}
+		input {
+			width: 80px;
+			text-align: center;
+		}
+		span {
+			color: white;
+		}
+		.wallpaper-example {
+			margin-top: 10px;
+			margin-bottom: 20px;
+			opacity: 0.85;
+		}
+	}
+
+	.save-wallpaper {
+		margin-top: 10px;
+	}
+
 }

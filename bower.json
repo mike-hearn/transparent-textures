@@ -1,12 +1,6 @@
 {
   "name": "transparent-textures",
-  "version": "0.0.0",
-  "dependencies": {
-    "bootstrap-sass-official": "*",
-    "jquery-minicolors": "*",
-    "jquery.lazyload": "*",
-    "zeroclipboard": "*"
-  },
+  "version": "0.1.2",
   "authors": [
     "Mike Hearn <git@mikehearn.net>"
   ],
@@ -22,7 +16,12 @@
     "tests"
   ],
   "devDependencies": {
+    "jquery": "~2.1.0",
+    "jquery-cookie": "~1.4.0",
+    "jquery-minicolors": "~2.1.1",
+    "jquery.lazyload": "~1.9.3",
+    "bootstrap-sass-official": "~3.1.1",
     "font-awesome": "~4.0.3",
-    "jquery-cookie": "~1.4.0"
+    "zeroclipboard": "~1.3.2"
   }
 }

@@ -79,6 +79,14 @@ module.exports = function(grunt) {
                     useAvailablePort: true
                 }
             }
+        },
+        shell: {
+            listFolders: {
+                options: {
+                    stdout: true
+                },
+                command: 'fab regenerate'
+            }
         }
     });
 

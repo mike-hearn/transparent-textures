@@ -39,7 +39,7 @@ function filterPatterns(element, $initial_state) {
                           '<div class="pattern-info">' +
                           '<h4 class="pattern-title">' + val.title + '</h4>' +
                           '<p>Made by <a href="' + val.authorsite + '" target="_blank">' + val.author + '</a></p>' +
-                          '<a href="/patterns/tree-bark.png" class="pattern-download" download><i class="fa fa-download"></i> Download</a>' +
+                          '<a href="/patterns/' + val.slug + '.png" class="pattern-download" download><i class="fa fa-download"></i> Download</a>' +
                           '<a href="' + val.slug + '.html" class="pattern-link"><i class="fa fa-link"></i> Link</a>' +
                           '</div></div></li>';
 

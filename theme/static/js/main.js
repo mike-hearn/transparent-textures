@@ -67,6 +67,7 @@ function instantiateColorpicker(color) {
             $('body,.clickable').css('background-color', hex);
             $('.hexbox').val(hex);
             changeCSSTextField(hex, $('body').css('background-image'));
+            setColorCookie(hex);
         },
         changeDelay: 10
     });
@@ -86,6 +87,10 @@ function setBGColorAndPattern() {
         default_pattern,
         default_pattern_title,
         default_pattern_url;
+
+    if ($.cookie('color')) {
+        default_background_color = $.cookie('color');
+    }
 
     if ($body.is('.base')) {
         default_pattern_array = $('#pattern-list li');
@@ -214,6 +219,10 @@ function instantiateSWFCopyButton() {
     client.on( "wrongFlash", function (client,args) {
         $('#copy-button').hide();
     } );
+}
+
+function setColorCookie(hex) {
+    $.cookie('color', hex, { expires: 1, path: '/' });
 }
 
 $(document).ready(function() {

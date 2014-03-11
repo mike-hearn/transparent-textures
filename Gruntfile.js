@@ -7,19 +7,22 @@ module.exports = function(grunt) {
             js: {
                 src: [
                     // Library & Plugins
-                    'bower_components/jquery/jquery.js',
+                    'bower_components/jquery/dist/jquery.js',
                     'bower_components/jquery-minicolors/jquery.minicolors.js',
                     'bower_components/jquery.lazyload/jquery.lazyload.js',
-                    'bower_components/chosen/coffee/chosen.jquery.coffee',
+                    'bower_components/jquery-cookie/jquery.cookie.js',
                     'bower_components/zeroclipboard/ZeroClipboard.js',
                     // User scripts
                     'theme/static/js/main.js',
-                ],
+            ],
                 dest: 'theme/static/js/all.js',
             },
         },
 
         uglify: {
+            options: {
+                mangle: false
+            },
             js: {
                 files: {
                     'theme/static/js/all.min.js' : ['theme/static/js/all.js']

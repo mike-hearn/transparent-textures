@@ -17,8 +17,10 @@
       <h4 class="pattern-title">{{ article.title }}</h4>
       <p>Made by {% if article.authorsite %}<a href="{{ article.authorsite }}" target="_blank">{% endif %}{{ article.author }}{%if article.authorsite %}</a>{% endif %}</p>
       <p style="display:none;">{% for tag in article.tags %}{{tag}} {% endfor %}</p>
-      <a href="/patterns/{{article.slug}}.png" class="pattern-download" download><i class="fa fa-download"></i> Download</a>
-      <a href="{{article.url}}" class="pattern-link"><i class="fa fa-link"></i> Link</a>
+      <div class="pattern-links">
+        <a href="/patterns/{{article.slug}}.png" class="pattern-link" download><i class="fa fa-link"></i> Download</a>
+        <a href="{{article.url}}" class="pattern-link"><i class="fa fa-picture-o"></i> Create Wallpaper</a>
+      </div>
     </div>
   </div>
 </li>

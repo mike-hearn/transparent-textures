@@ -141,8 +141,11 @@ function instantiateClickablePatterns() {
 }
 
 function instantiateLazyLoading() {
-    $("div.lazy").lazyload({threshold : 1000, effect: "fadeIn"});
-    $('body, html').scroll();
+    $("div.lazy").lazyload({
+        threshold : 2000,
+        effect: "fadeIn",
+        event: "scrollstop"
+    });
 }
 
 function createCanvasWallpaper(pattern, color, width, height, attachToAnchorCallback) {

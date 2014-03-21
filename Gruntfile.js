@@ -13,6 +13,7 @@ module.exports = function(grunt) {
                     'bower_components/jquery-cookie/jquery.cookie.js',
                     'bower_components/zeroclipboard/ZeroClipboard.js',
                     // User scripts
+                    'theme/static/js/plugins.js',
                     'theme/static/js/main.js',
             ],
                 dest: 'theme/static/js/all.js',

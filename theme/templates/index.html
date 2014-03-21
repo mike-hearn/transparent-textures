@@ -10,7 +10,7 @@
 
 <ol id="pattern-list">
 
-{% for article in articles_page.object_list | sort(attribute="title", reverse=False) if "featured" in article.tags %}
+{% for article in articles_page.object_list | sort(attribute="title", reverse=False) %}
 <li class="pattern-container col-sm-6 {% if 'featured' in article.tags %}featured{% endif %}">
   <div class="pattern clickable lazy" data-original="/patterns/{{ article.slug }}.png" style="background-image: url('/theme/images/transparent.png');">
     <div class="pattern-info">

@@ -11447,8 +11447,10 @@ function filterPatterns(element, $initial_state) {
                           '<div class="pattern-info">' +
                           '<h4 class="pattern-title">' + val.title + '</h4>' +
                           '<p>Made by <a href="' + val.authorsite + '" target="_blank">' + val.author + '</a></p>' +
-                          '<a href="/patterns/' + val.slug + '.png" class="pattern-download" download><i class="fa fa-download"></i> Download</a>' +
-                          '<a href="' + val.slug + '.html" class="pattern-link"><i class="fa fa-link"></i> Link</a>' +
+                          '<div class="pattern-links">' +
+                            '<a href="/patterns/' + val.slug + '.png" class="pattern-link" download><i class="fa fa-link"></i> Download</a>' +
+                            '<a href="' + val.slug + '.html" class="pattern-link"><i class="fa fa-picture-o"></i> Create Wallpaper</a>' +
+                            '</div>' +
                           '</div></div></li>';
 
                 li_list.push(element);

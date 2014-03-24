@@ -18,9 +18,32 @@ function changeCSSTextField(hex, url) {
 function filterPatterns(element, $initial_state) {
 /* Filter the items based on searched text of > 2 characters */
 
+    function makeCloseButton() {
+        $('.searchicon')
+            .removeClass('fa-search')
+            .addClass('fa-times')
+            .parent().click(function() {
+                $(element).val('');
+                filterPatterns(element, $initial_state);
+            });
+    }
+
+    function makeSearchIcon() {
+        $('.searchicon').removeClass('fa-times');
+        $('.searchicon').addClass('fa-search');
+    }
+
+    //Clear previous searched items
     $('.searched').remove();
 
     var value = $(element).val().toLowerCase();
+
+    if (value.length > 0) {
+        makeCloseButton();
+    }
+    else {
+        makeSearchIcon();
+    }
 
     if (value.length > 2) {
         $initial_state.hide();
@@ -34,16 +57,16 @@ function filterPatterns(element, $initial_state) {
             $(matched_objects).each(function(idx, val) {
 
                 var element = '<li class="pattern-container col-sm-6 searched">' +
-                          '<div class="pattern clickable lazy" data-original="/patterns/' + val.slug + '.png" ' +
-                          'style="background-image: url(/theme/images/transparent.png);">' + //todo: escape data.html slashes
-                          '<div class="pattern-info">' +
-                          '<h4 class="pattern-title">' + val.title + '</h4>' +
-                          '<p>Made by <a href="' + val.authorsite + '" target="_blank">' + val.author + '</a></p>' +
-                          '<div class="pattern-links">' +
-                            '<a href="/patterns/' + val.slug + '.png" class="pattern-link" download><i class="fa fa-link"></i> Download</a>' +
-                            '<a href="' + val.slug + '.html" class="pattern-link"><i class="fa fa-picture-o"></i> Create Wallpaper</a>' +
-                            '</div>' +
-                          '</div></div></li>';
+                              '<div class="pattern clickable lazy" data-original="/patterns/' + val.slug + '.png" ' +
+                              'style="background-image: url(/theme/images/transparent.png);">' +
+                              '<div class="pattern-info">' +
+                              '<h4 class="pattern-title">' + val.title + '</h4>' +
+                              '<p>Made by <a href="' + val.authorsite + '" target="_blank">' + val.author + '</a></p>' +
+                              '<div class="pattern-links">' +
+                                '<a href="/patterns/' + val.slug + '.png" class="pattern-link" download><i class="fa fa-link"></i> Download</a>' +
+                                '<a href="' + val.slug + '.html" class="pattern-link"><i class="fa fa-picture-o"></i> Create Wallpaper</a>' +
+                                '</div>' +
+                              '</div></div></li>';
 
                 li_list.push(element);
             });
@@ -144,7 +167,7 @@ function instantiateClickablePatterns() {
 
 function instantiateLazyLoading() {
     $("div.lazy").lazyload({
-        threshold : 2000,
+        threshold : 1500,
         effect: "fadeIn",
         event: "scrollstop"
     });

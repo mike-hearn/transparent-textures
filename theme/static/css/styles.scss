@@ -1,6 +1,11 @@
 $font-family-sans-serif: "proxima-nova","Helvetica Neue", Helvetica, Arial, sans-serif !default;
 
+@import 'fonts';
 @import 'bootstrap';
+
+body {
+	min-height: 1440;
+}
 
 h1,h2,h3,h4,h5,h6,p{
 	color: #fafafa;
@@ -49,6 +54,14 @@ h1 {
 		right: 22px;
 		top: 5px;
 	}
+}
+
+.searchicon-click-container {
+	color: black;
+}
+
+.fa-times:hover {
+	cursor: pointer;
 }
 
 .site-title{

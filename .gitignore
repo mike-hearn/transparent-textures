@@ -5,3 +5,7 @@ Transparent Textures (Pelican).sublime-workspace
 *.pyc
 node_modules/
 bower_components/
+venv/
+all.min.css
+styles.css
+all.min.js

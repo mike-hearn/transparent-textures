@@ -25,15 +25,15 @@ except IndexError:
 	author = re.findall('Made by (.+?)\.',content)[0]
 	authorsite = ''
 
-print title
-print slug
-print author
-print authorsite
-print original+"\n"
+print(title)
+print(slug)
+print(author)
+print(authorsite)
+print(original+"\n")
 
 filename = './content/' + slug + '.md'
 if os.path.isfile(filename):
-	print "Error: file exists."
+	print("Error: file exists.")
 	exit()
 writefile = open(filename,'w')
 
